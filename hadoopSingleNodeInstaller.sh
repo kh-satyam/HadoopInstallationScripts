@@ -15,10 +15,10 @@ then
 	java -version
 	echo "Creating separate group for Hadoop Cluster Setup"
 	addgroup hadoop
-	#sudo apt-get purge openssh-server
-	#sudo apt-get purge openssh-client
-	#sudo apt-get install openssh-client
-	#sudo apt-get install openssh-server
+	sudo apt-get purge openssh-server
+	sudo apt-get purge openssh-client
+	sudo apt-get install openssh-client
+	sudo apt-get install openssh-server
 	echo "Do you wish to create separate user for Hadoop Cluster Installation"
 	read -p "(Y\N)?" isNewUser
 	if [ $isNewUser = "Y" ]
@@ -40,10 +40,10 @@ then
 	echo "SSH conenction has been set up"
 	echo "Downloading Hadoop version 2.7"
 	echo "Removing existing versions if exist"
-	#rm hadoop-2.7.3.tar.gz
-	#wget https://archive.apache.org/dist/hadoop/core/hadoop-2.7.3/hadoop-2.7.3.tar.gz
+	rm hadoop-2.7.3.tar.gz
+	wget https://archive.apache.org/dist/hadoop/core/hadoop-2.7.3/hadoop-2.7.3.tar.gz
 	echo "hadoop downloaded"
-	#tar -xvf hadoop-2.7.3.tar.gz
+	tar -xvf hadoop-2.7.3.tar.gz
 	echo "Adding environment variables to bashrc file"
 	echo 'export HADOOP_HOME=$PWD/hadoop-2.7.3' >> ~/.bashrc
 	echo 'export HADOOP_CONF_DIR=$PWD/hadoop-2.7.3/etc/hadoop' >> ~/.bashrc
