@@ -45,7 +45,7 @@ then
 	echo "hadoop downloaded"
 	tar -xvf hadoop-2.7.3.tar.gz
 	echo "Adding environment variables to bashrc file"
-	echo 'export HADOOP_HOME=$PWD/hadoop-2.7.3' >> ~/.bashrc
+	echo 'export HADOOP_HOME='$PWD'/hadoop-2.7.3' >> ~/.bashrc
 	echo 'export HADOOP_CONF_DIR='$PWD'/hadoop-2.7.3/etc/hadoop' >> ~/.bashrc
 	echo 'export HADOOP_MAPRED_HOME='$PWD'/hadoop-2.7.3' >> ~/.bashrc
 	echo 'export HADOOP_COMMON_HOME='$PWD'/hadoop-2.7.3' >> ~/.bashrc
