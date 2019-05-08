@@ -62,23 +62,23 @@ then
 	rm $PWD/hadoop-2.7.3/etc/hadoop/hdfs-site.xml
 	rm $PWD/hadoop-2.7.3/etc/hadoop/mapred-site.xml
 	rm $PWD/hadoop-2.7.3/etc/hadoop/yarn-site.xml
-	mkdir $HOME/hadoopdata
-	mkdir $HOME/hadoopdata/datanode
-	mkdir $HOME/hadoopdata/namenode
+	mkdir $PWD/hadoopdata
+	mkdir $PWD/hadoopdata/datanode
+	mkdir $PWD/hadoopdata/namenode
 	cp $PWD/xml_files/core-site.xml $PWD/hadoop-2.7.3/etc/hadoop/core-site.xml
 	cp $PWD/xml_files/hdfs-site.xml $PWD/hadoop-2.7.3/etc/hadoop/hdfs-site.xml
 	cp $PWD/xml_files/mapred-site.xml $PWD/hadoop-2.7.3/etc/hadoop/mapred-site.xml
 	cp $PWD/xml_files/yarn-site.xml $PWD/hadoop-2.7.3/etc/hadoop/yarn-site.xml
-	# echo '<property>
-	# 		<name>dfs.namenode.name.dir</name>
-        #     			<value>$HOME/hadoopdata/namenode</value>
-        #  			</property>' >> $PWD/hadoop-2.7.3/etc/hadoop/hdfs-site.xml
-	#
-	# echo '<property>
-	# 		<name>dfs.datanode.name.dir</name>
-        #     			<value>$HOME/hadoopdata/datanode</value>
-        #  			</property>' >> $PWD/hadoop-2.7.3/etc/hadoop/hdfs-site.xml
-	#echo '</configuration>' >> $PWD/hadoop-2.7.3/etc/hadoop/hdfs-site.xml
+	echo '<property>
+ 		<name>dfs.namenode.name.dir</name>
+             			<value>'$PWD'/hadoopdata/namenode</value>
+          			</property>' >> $PWD/hadoop-2.7.3/etc/hadoop/hdfs-site.xml
+	
+	 echo '<property>
+	 		<name>dfs.datanode.name.dir</name>
+             			<value>'$PWD'/hadoopdata/datanode</value>
+          			</property>' >> $PWD/hadoop-2.7.3/etc/hadoop/hdfs-site.xml
+	echo '</configuration>' >> $PWD/hadoop-2.7.3/etc/hadoop/hdfs-site.xml
 	echo "Hadoop Configuration successfull"
 
 	echo "Formatting Hadoop NameNode"
