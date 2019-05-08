@@ -34,8 +34,8 @@ then
 	#sudo -u $username ssh-keygen -t rsa -P ""
 	#sudo -u $username cat $HOME/.ssh/id_rsa.pub >> $HOME/.ssh/authorized_keys
 	#sudo -u $username ssh localhost
-	ssh-keygen -t rsa -P ""
-	cat $HOME/.ssh/id_rsa.pub >> $HOME/.ssh/authorized_keys
+	ssh-keygen -t rsa -P ""  -f $HOME/.ssh/hadoop_key
+	cat $HOME/.ssh/hadoop_key.pub >> $HOME/.ssh/authorized_keys
 	#ssh localhost
 	echo "SSH conenction has been set up"
 	echo "Downloading Hadoop version 2.7"
