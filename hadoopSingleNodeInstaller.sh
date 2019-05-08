@@ -15,20 +15,20 @@ then
 	java -version
 	echo "Creating separate group for Hadoop Cluster Setup"
 	addgroup hadoop
-	sudo apt-get purge openssh-server
-	sudo apt-get purge openssh-client
-	sudo apt-get install openssh-client
-	sudo apt-get install openssh-server
-	echo "Do you wish to create separate user for Hadoop Cluster Installation"
-	read -p "(Y\N)?" isNewUser
-	if [ $isNewUser = "Y" ]
-	then
-		echo "Creating a new user to operate hadoop cluster"
-		read -p "Enter username of new user to be created:" username
-		adduser --ingroup test1 $username
-		adduser $username sudo
-	fi
-	echo "Please Login Again"
+	sudo apt-get purge openssh-server -y
+	sudo apt-get purge openssh-client -y
+	sudo apt-get install openssh-client -y
+	sudo apt-get install openssh-server -y
+	#echo "Do you wish to create separate user for Hadoop Cluster Installation"
+	#read -p "(Y\N)?" isNewUser
+	#if [ $isNewUser = "Y" ]
+	#then
+	#	echo "Creating a new user to operate hadoop cluster"
+	#	read -p "Enter username of new user to be created:" username
+	#	adduser --ingroup test1 $username
+	#	adduser $username sudo
+	#fi
+	#echo "Please Login Again"
 	#read -p "Username:" username
 	#su - $username
 	#sudo -u $username ssh-keygen -t rsa -P ""
@@ -36,7 +36,7 @@ then
 	#sudo -u $username ssh localhost
 	ssh-keygen -t rsa -P ""
 	cat $HOME/.ssh/id_rsa.pub >> $HOME/.ssh/authorized_keys
-	ssh localhost
+	#ssh localhost
 	echo "SSH conenction has been set up"
 	echo "Downloading Hadoop version 2.7"
 	echo "Removing existing versions if exist"
@@ -56,7 +56,7 @@ then
 	echo 'export PATH=/usr/lib/jvm/java-8-openjdk-amd64/bin:$PATH' >> ~/.bashrc
 	source ~/.bashrc
 	echo "Bashrc Updated"
-	echo "Add jdk path to hadoop-env.sh"
+	echo "Adding jdk path to hadoop-env.sh"
 	echo "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64" >> $PWD/hadoop-2.7.3/etc/hadoop/hadoop-env.sh
 	rm $PWD/hadoop-2.7.3/etc/hadoop/core-site.xml
 	rm $PWD/hadoop-2.7.3/etc/hadoop/hdfs-site.xml
